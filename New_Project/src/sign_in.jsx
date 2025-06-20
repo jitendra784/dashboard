@@ -1,32 +1,31 @@
 
+import { Checkbox } from "@headlessui/react";
 import React, { useState } from "react";
 
 const Sign_in = () => {
  const [showNotification, setShowNotification] = useState(true);
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row ">
-      {/* Left Panel: Form Area */}
-      <div
-        id="left"
-        className="w-full lg:w-1/2 bg-neutral-900 text-white  flex flex-col justify-center    p-10 rounded-4xl"
-      >
-        {/* Logo and Heading */}
-        <div className=" px-3 pt-12">
-          <div className="mb-8">
-            <div className="w-12 h-12 bg-blue-600 rounded-md mb-6"></div>
-            <h2 className="text-3xl font-bold">Sign In</h2>
-            <p className="mt-2 text-sm text-gray-400">
-              Don’t have an account? <a href="#" className="underline">Sign Up</a>
-            </p>
-          </div>
-        </div>
+    <div>
+      <div id='main' className='w-full  mx-auto   bg-gradient-to-r from-blue-600 to-blue-800 flex min-h-screen'>
+        
+        <div id='left' className='w-full lg:w-1/2 bg-neutral-900 text-white  flex flex-col lg:items-end justify-center lg:rounded-l-xs rounded-4xl mx-15 my-15 lg:m-0 '> 
+        
+        <div className='container px-2 bg-neutral-900  lg:pl-33 w-full mx-10 py-32 rounded-4xl'>
+          <div className="px-1 container mx-auto ">
+                    <div id='logo' className=' mx-10 w-32 h-32 rounded-md  pt-4 '>
+              <img src="/src/logo.png"></img> </div>
 
-        {/* Notification */}
-        {showNotification && (
-          <div className="bg-neutral-800 text-sm p-4 rounded-md flex justify-between items-center mb-6">
+                        <div className='pt-5'>
+                           <h1 className='text-xl mx-10 font-bold justify-start'>Sign In</h1>
+                           <p className='text-slate-600 mx-10'>Don't have an account?<a className='font-semibold text-white'>&nbsp;Sign Up</a></p>
+                       
+                       
+                        </div>
+{showNotification && (
+          <div className="bg-neutral-800 text-sm p-4 rounded-md flex justify-between  items-center mb-6 mt-3 ml-10 mr-8">
             <span>
-              💡 Welcome to Tailwise demo! Simply click Sign In to explore and access our documentation.
+           Welcome to Tailwise demo! Simply click Sign In to explore and access our  documentation.
             </span>
             <button
               onClick={() => setShowNotification(false)}
@@ -36,44 +35,56 @@ const Sign_in = () => {
             </button>
           </div>
         )}
+        </div>
+                       <form className=' container px-10 mx-auto '>
+                       
 
-        {/* Form */}
-        <form className="space-y-4">
-          <div>
-            <label className="block text-sm mb-1">Email*</label>
+                        
+
+                        <div>
+            <label className="block text-sm mb-1 text-slate-600 pt-5">Email*</label>
             <input
               type="email"
-              placeholder="example@domain.com"
-              className="w-full px-4 py-2 bg-neutral-800 text-white border border-neutral-700 rounded"
+              placeholder="johnny.depp@left4code.com"
+              className="w-full px-4 py-2 bg-neutral-800 text-white border ml-1 border-neutral-700 rounded-md"
             />
           </div>
-          <div>
-            <label className="block text-sm mb-1">Password*</label>
-            <input
-              type="password"
-              placeholder="••••••••"
-              className="w-full px-4 py-2 bg-neutral-800 text-white border border-neutral-700 rounded"
-            />
-          </div>
-          <div className="flex items-center justify-between text-sm">
+          
+           <div > 
+                            <label className="block text-sm required mb-1 text-slate-600 pt-5">Password*</label>
+                            <input type='password'required placeholder='*********' className='bg-neutral-800 w-full px-4  py-2 rounded-md ml-1 border-1 '></input>
+                        </div>
+                       
+                          <div className="flex justify-between">
+                            <div className="flex">
+                            <label className="flex items-center ">
+
+                            <input type="checkbox"  placeholder="none" className=" accent-blue-500" label="remember"/><p className=" text-sm text-gray-400 ml-2"> Remember Me</p></label></div>
+                           <p className='text-gray-400 pt-2 ml-1 text-sm'>Forgot Password?</p>
+                           
+                           </div>
+                           
+                         
+                       <div className=" pt-4 items-center text-sm">
             <label className="flex items-center gap-2">
-              <input type="checkbox" className="accent-blue-500" /> Remember me
+              <input type="checkbox" className=" accent-blue-500" /><p className='text-gray-400'> I agree to the Envato <a href="#" className="text-white hover:none">
+             Privacy Policy
+            </a></p>
             </label>
-            <a href="#" className="text-gray-400 hover:underline">
-              Forgot Password?
-            </a>
-          </div>
-          <button className="w-full bg-gradient-to-r from-blue-600 to-blue-800 py-2 rounded-full font-semibold hover:opacity-90">
+           
+                       </div>
+
+                         <button className="w-full bg-gradient-to-r from-blue-600 to-blue-800 py-2 rounded-full border-1 font-semibold mt-4 hover:opacity-90 mb-4">
             Sign In
           </button>
           <button className="w-full bg-neutral-800 py-2 rounded-full font-semibold hover:opacity-90">
             Sign Up
           </button>
-        </form>
-      </div>
 
-      {/* Right Panel: Hidden on small screens */}
-      <div className="hidden lg:flex w-full lg:w-1/2 bg-gradient-to-r from-blue-800 to-blue-200 text-white p-12 flex-col justify-center">
+                        </form>
+                    </div>
+        </div>
+         <div className="hidden lg:flex w-full lg:w-1/2 bg-gradient-to-r from-blue-800 to-blue-200 text-white p-12 flex-col justify-center">
         <h1 className="text-4xl font-bold leading-tight mb-4">
           Embrace Excellence <br /> in Dashboard Development
         </h1>
@@ -101,7 +112,9 @@ const Sign_in = () => {
           <p className="text-sm">Over 7k+ strong and growing!</p>
         </div>
       </div>
-    </div>
+        </div>
+      </div>
+
   );
 }
 
