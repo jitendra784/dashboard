@@ -14,11 +14,11 @@ const Sign_in = () => {
         <div className='  container px-2  bg-neutral-900  lg:pl-33 w-full mx-0 sm:py-32 py-2 rounded-4xl  '>
           <div className="px-1 container mx-auto ">
                     <div id='logo' className=' mx-10 w-32 h-32 rounded-md  pt-4 '>
-              <img src="/src/logo.png"></img> </div>
+              <img src="../src/assets/logo.png"></img> </div>
 
                         <div className='pt-5'>
                            <h1 className='text-xl mx-10 font-bold justify-start'>Sign In</h1>
-                           <p className='text-slate-600 mx-10'>Don't have an account? ?????<a className='font-semibold text-white'>&nbsp;Sign Up</a></p>
+                           <p className='text-slate-600 mx-10'>Don't have an account? <a className='font-semibold text-white'>&nbsp;Sign Up</a></p>
                        
                        
                         </div>
@@ -37,9 +37,7 @@ const Sign_in = () => {
         )}
         </div>
                        <form className=' container px-10 mx-auto '>
-                       
 
-                        
 
                         <div>
             <label className="block text-sm mb-1 text-slate-600 pt-5">Email*</label>

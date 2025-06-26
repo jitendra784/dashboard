@@ -5,10 +5,10 @@ const Register = () => {
     <div>
       <div id='main' className='w-full  mx-auto   bg-gradient-to-r from-blue-600 to-blue-800 flex min-h-screen'>
         
-        <div id='left' className='w-full lg:w-1/2 bg-neutral-900 text-white  flex flex-col lg:items-end justify-center     rounded-xl mx-30 my-15 lg:m-0 '> 
+        <div id='left' className='w-full lg:w-1/2 bg-neutral-900 text-white  flex flex-col lg:items-end justify-center   rounded-4xl  lg:rounded-xl mx-30 my-15 lg:m-0 '> 
         <div className='container px-2 bg-neutral-900  lg:pl-33 w-full mx-10 py-32 rounded-4xl'>
                     <div id='logo' className=' mx-10 w-32 h-32 rounded-md  pt-4 '>
-              <img src="/src/logo.png"></img> </div>
+              <img src="../src/assets/logo.png"></img> </div>
 
                         <div className='pt-5'>
                         <h1 className='text-xl mx-10 font-bold justify-start'>Sign Up</h1>
@@ -64,7 +64,7 @@ const Register = () => {
                          <button className="w-full bg-gradient-to-r from-blue-600 to-blue-800 py-2 rounded-full border-1 font-semibold mt-4 hover:opacity-90">
             Sign In
           </button>
-          <button className="w-full bg-neutral-800 py-2 rounded-full font-semibold hover:opacity-90">
+          <button className="w-full bg-neutral-800 py-2 rounded-full font-semibold hover:opacity-90 mt-4">
             Sign Up
           </button>
 
