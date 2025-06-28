@@ -122,7 +122,7 @@ const Sidebar = () => {
             {expanded && <span>Apply Leave</span>}
           </Link>
           <Link
-            to="/holiday"
+            to="/holidayCalender"
             className="flex items-center gap-3 hover:border p-3 rounded-xl"
           >
             <FaRegFolder size={19} />
