@@ -8,6 +8,7 @@ import {
   faXmark,
   faInfo,
 } from "@fortawesome/free-solid-svg-icons";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegFolder } from "react-icons/fa";
@@ -15,6 +16,7 @@ import { FaRegFolder } from "react-icons/fa";
 const Sidebar = () => {
   const [expanded, setExpanded] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openResignMenu, setOpenResignMenu] = useState(false);
 
   return (
     <>
@@ -115,19 +117,77 @@ const Sidebar = () => {
             {expanded && <span>Daily Attendance Report</span>}
           </Link>
           <Link
-            to="/users"
-            className="flex items-center gap-3 hover:border p-3 rounded-xl"
-          >
-            <FaRegFolder size={19} />
-            {expanded && <span>Apply Leave</span>}
-          </Link>
-          <Link
             to="/holidayCalender"
             className="flex items-center gap-3 hover:border p-3 rounded-xl"
           >
             <FaRegFolder size={19} />
             {expanded && <span>Holiday Calendar</span>}
           </Link>
+          
+            <div
+            className="relative"
+            onMouseEnter={() => setOpenResignMenu(true)}
+            onMouseLeave={() => setOpenResignMenu(false)}
+          >
+            <button className="flex items-center gap-3 hover:border p-3 rounded-md w-full">
+              <FaRegFolder size={19} />
+              {expanded && <span className="flex-1">Leave Apply</span>}
+              {expanded &&
+                (openResignMenu ? <FaChevronUp /> : <FaChevronDown />)}
+            </button>
+
+            {openResignMenu && (
+              <div className="ml-8 mt-2 space-y-2 text-md">
+                <Link
+                  to="/leaveList"
+                  className="block hover:text-cyan-500"
+                >
+                  Leave List
+                </Link>
+                
+               
+                <Link to="/addLeave" className="block hover:text-cyan-500">
+                  Add Leave
+                </Link>
+              </div>
+            )}
+          </div>
+
+          <div
+            className="relative"
+            onMouseEnter={() => setOpenResignMenu(true)}
+            onMouseLeave={() => setOpenResignMenu(false)}
+          >
+            <button className="flex items-center gap-3 hover:border p-3 rounded-md w-full">
+              <FaRegFolder size={19} />
+              {expanded && <span className="flex-1">E-Resign/Ref</span>}
+              {expanded &&
+                (openResignMenu ? <FaChevronUp /> : <FaChevronDown />)}
+            </button>
+
+            {openResignMenu && (
+              <div className="ml-8 mt-2 space-y-2 text-md">
+                <Link
+                  to="/addEmpReference"
+                  className="block hover:text-cyan-500"
+                >
+                  Add Emp Reference
+                </Link>
+                <Link
+                  to="/empReferenceListing"
+                  className="block hover:text-cyan-500"
+                >
+                  Emp Reference Listing
+                </Link>
+                <Link to="/addResign" className="block hover:text-cyan-500">
+                  Add Resign
+                </Link>
+                <Link to="/resignList" className="block hover:text-cyan-500">
+                  Resign Listing
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>

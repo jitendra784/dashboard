@@ -27,10 +27,11 @@ const Search = () => {
       <div className="text-xl font-semibold pl-4">
         
         {pathnames.map((name, index) => {
+
           const displayName = name.charAt(0).toUpperCase() + name.slice(1);
           return (
             
-              <span className="text-white">{displayName}</span>
+              <span key={index} className="text-white">{displayName}</span>
             
           );
         })}

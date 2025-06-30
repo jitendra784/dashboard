@@ -30,7 +30,7 @@ function AddHolidays({ onClose, fetchData }) {
   };
 
   return (
-    <div className="fixed inset-0 text-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center">
+    <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex items-center justify-center">
       <div className="flex mt-10 flex-col gap-5 text-white">
         <button onClick={onClose} className="place-self-end">
           <X size={30} />

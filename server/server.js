@@ -4,6 +4,8 @@ const cors = require("cors");
 const connectDB = require("./condig/db");
 const dsrRoute = require("./routes/dsr-router");
 const holidayRoute = require("./routes/holiday-router");
+const resignRouter = require("./routes/resign-router");
+const leaveRouter = require("./routes/leave-router")
 const app = express();
 
 require("dotenv").config();
@@ -20,6 +22,8 @@ app.use(cors(corsOptions));
 
 app.use("/api", dsrRoute);
 app.use("/api", holidayRoute);
+app.use("/api", resignRouter);
+app.use("/api", leaveRouter);
 
 const PORT = process.env.PORT || 8001;
 app.listen(PORT, () => {

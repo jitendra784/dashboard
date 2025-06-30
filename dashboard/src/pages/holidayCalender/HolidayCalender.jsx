@@ -73,7 +73,7 @@ const Holiday = () => {
             {holidays.map((holiday, index) => (
               <tr className="text-center" key={index}>
                 <td className="border border-gray-700 px-4 py-2">
-                  {holiday.srNo}
+                  {index +1}
                 </td>
                 <td className="border border-gray-700 px-4 py-2">
                   {holiday.name}
