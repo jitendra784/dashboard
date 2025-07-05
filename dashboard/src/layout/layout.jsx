@@ -1,7 +1,7 @@
 // components/Layout.jsx
 import React from "react";
-import Sidebar from "./sidebar";
-import Search from "./search";
+import Sidebar from "../layout/sidebar";
+import Search from "../components/search";
 
 const Layout = ({ children }) => {
   return (

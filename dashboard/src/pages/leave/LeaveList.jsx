@@ -53,7 +53,7 @@ const editUser = (item) => {
 };
 
   return (
-    <div className="h-min-screen bg-black text-white p-5  rounded-md">
+    <div className="h-screen bg-black text-white p-5  rounded-md">
       <h2 className="text-xl mb-10 pb-3 rounded-md sm:text-2xl font-semibold ">
         Resign Section
       </h2>

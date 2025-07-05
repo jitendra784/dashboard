@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sign_in from "./sign_in";
-import ProfileForm from "./profile";
+import Sign_in from "./auth/sign_in";
+import ProfileForm from "./pages/user/profile/profile";
 import UserPage from "./pages/user/userPage";
-import Layout from "./layout";
-import Dashboard from "./dashboard";
-import Profile_info from "./profile_infos";
+import Layout from "./layout/layout";
+import Dashboard from "./deshboard/dashboard";
+import Profile_info from "./pages/user/profile/profile_infos";
 import DSR_List from "./pages/dsrListReport/DSR_List";
 import Add_Dsr_Report from "./pages/dsrListReport/Add_Dsr_Report";
 import AttendanceSheet from "./pages/attendanceSheet/AttendanceSheet";
