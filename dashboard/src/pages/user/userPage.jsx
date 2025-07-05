@@ -58,8 +58,8 @@ const sampleUsers = [
 
 const UserPage = () => {
   return (
-    <div className="container mx-auto">
-    <div className="min-h-screen bg-neutral-950 text-white p-10">
+    <div className="container mx-auto mr-5">
+    <div className="min-h-screen  bg-neutral-950 rounded-md text-white p-10">
       <h1 className="text-2xl font-semibold mb-6">Users</h1>
       <UserTable users={sampleUsers} />
     </div>

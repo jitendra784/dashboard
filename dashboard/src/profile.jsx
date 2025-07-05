@@ -18,8 +18,8 @@ const ProfileForm = () => {
   };
 
   return (
-    <div className=" mx-auto container ">
-    <div className="bg-neutral-900 text-white w-full min-h-screen px-5 pt-5">
+    <div className=" mx-auto container  ">
+    <div className="bg-neutral-900 rounded-md lg:p-10  text-white w-full min-h-screen px-5 pt-5">
       <div className="w-full   mx-auto bg-neutral-950 rounded-xl p-8 ">
         <h2 className="text-xl font-semibold ">Profile Photo</h2>
         <p className="mb-6 text-xs text-slate-700">Upload a clear and recent profile photo</p>

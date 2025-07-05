@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
     <div className="flex">
       <Sidebar />
       <main className="w-full p-4">
-        <Search />       {/* Breadcrumb bar */}
+        { <Search />       /*Breadcrumb bar */}
         {children}       {/* Current route content */}
       </main>
     </div>

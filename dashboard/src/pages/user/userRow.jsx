@@ -1,4 +1,3 @@
-// components/UserRow.jsx
 import React from "react";
 import { CheckCircleIcon, XCircleIcon } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,7 +5,8 @@ import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 
 const UserRow = ({ user }) => {
   return (
-    <tr className="border-b border-dashed neutral-700 hover:bg-neutral-800 transition">
+    // border inside users
+    <tr className="border-b border-dashed neutral-700 rounded-md hover:bg-neutral-800 transition">
       <td className="p-3 flex items-center gap-3">
         <input type="checkbox" />
         <img src={user.avatar} alt="avatar" className="w-8 h-8 rounded-full" />
@@ -16,7 +16,7 @@ const UserRow = ({ user }) => {
         </div>
       </td>
       <td className="p-3 text-white">
-        <div >{user.position}</div>
+        <div>{user.position}</div>
         <div className="text-sm text-neutral-400">{user.department}</div>
       </td>
       <td className="p-3 text-white">
@@ -26,7 +26,9 @@ const UserRow = ({ user }) => {
             style={{ width: `${user.profileCompletion}%` }}
           />
         </div>
-        <div className="text-sm text-neutral-400">{user.profileCompletion}%</div>
+        <div className="text-sm text-neutral-400">
+          {user.profileCompletion}%
+        </div>
       </td>
       <td className="p-3">
         <span
@@ -44,7 +46,9 @@ const UserRow = ({ user }) => {
       </td>
       <td className="p-3 text-white">{user.joined}</td>
       <td className="p-3 text-right">
-        <button className="text-neutral-400 hover:text-white"> <FontAwesomeIcon icon={faEllipsisV} className="text-base" /></button>
+        <button className="text-neutral-400 hover:text-white">
+          <FontAwesomeIcon icon={faEllipsisV} className="text-base" />
+        </button>
       </td>
     </tr>
   );

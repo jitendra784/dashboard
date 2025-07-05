@@ -34,4 +34,22 @@ const addHoliday = async (req, res) => {
   }
 };
 
-module.exports = { getAllHolidays, addHoliday };
+// update and edit
+const update = async (req, res) => {
+  try {
+    const id = req.params.id; // fix typo
+    const exist = await Holiday.findById(id);
+    if (!exist) {
+      return res.status(404).json({ message: "Holiday not found" });
+    }
+    const updatedData = await Holiday.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    res.status(200).json(updatedData);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+
+module.exports = { getAllHolidays, addHoliday, update };

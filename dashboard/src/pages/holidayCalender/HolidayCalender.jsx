@@ -1,11 +1,12 @@
-import AddHolidays from "./AddHolidays";
 import React, { useEffect, useState } from "react";
+import AddHolidays from "./AddHolidays";
 
 const Holiday = () => {
   const [holidays, setHolidays] = useState([]);
   const [showModel, setShowModel] = useState(false);
+  const [editData, setEditData] = useState(null);
+  const [isEdit, setIsEdit] = useState(false);
 
-  // ✅ Move fetchHolidays here
   const fetchHolidays = async () => {
     try {
       const res = await fetch("http://localhost:8001/api/holidays");
@@ -16,7 +17,12 @@ const Holiday = () => {
     }
   };
 
-  // useEffect only calls it on mount
+  const handleEdit = (holiday) => {
+    setEditData(holiday);
+    setIsEdit(true);
+    setShowModel(true);
+  };
+
   useEffect(() => {
     fetchHolidays();
   }, []);
@@ -35,10 +41,14 @@ const Holiday = () => {
           readOnly
         />
         <div className="flex flex-col">
-           <button
+          <button
             className="border rounded-md mb-5 px-3 font-bold text-start text-xl py-2"
-            type="button" // ✅ use type="button" to avoid form submit
-            onClick={() => setShowModel(true)}
+            type="button"
+            onClick={() => {
+              setIsEdit(false);
+              setEditData(null);
+              setShowModel(true);
+            }}
           >
             Add Holiday
           </button>
@@ -46,14 +56,18 @@ const Holiday = () => {
             className="border rounded-md mb-5 px-3 font-bold text-xl py-2"
             type="text"
             value={"Search"}
-            readOnly // ✅ fix typo: 'readonly' -> 'readOnly'
+            readOnly
           />
-         
-
           {showModel && (
             <AddHolidays
-              onClose={() => setShowModel(false)}
-              fetchData={fetchHolidays} // ✅ now works
+              onClose={() => {
+                setShowModel(false);
+                setIsEdit(false);
+                setEditData(null);
+              }}
+              fetchData={fetchHolidays}
+              editData={editData}
+              isEdit={isEdit}
             />
           )}
         </div>
@@ -67,22 +81,23 @@ const Holiday = () => {
               <th className="border border-gray-700 px-4 py-2">Holiday Name</th>
               <th className="border border-gray-700 px-4 py-2">Date</th>
               <th className="border border-gray-700 px-4 py-2">Weekday</th>
+              <th className="border border-gray-700 px-4 py-2">Action</th>
             </tr>
           </thead>
           <tbody>
             {holidays.map((holiday, index) => (
-              <tr className="text-center" key={index}>
+              <tr className="text-center" key={holiday._id}>
+                <td className="border border-gray-700 px-4 py-2">{index + 1}</td>
+                <td className="border border-gray-700 px-4 py-2">{holiday.name}</td>
+                <td className="border border-gray-700 px-4 py-2">{holiday.date}</td>
+                <td className="border border-gray-700 px-4 py-2">{holiday.weekday}</td>
                 <td className="border border-gray-700 px-4 py-2">
-                  {index +1}
-                </td>
-                <td className="border border-gray-700 px-4 py-2">
-                  {holiday.name}
-                </td>
-                <td className="border border-gray-700 px-4 py-2">
-                  {holiday.date}
-                </td>
-                <td className="border border-gray-700 px-4 py-2">
-                  {holiday.weekday}
+                  <button
+                    className="px-2 py-1 bg-blue-600 rounded"
+                    onClick={() => handleEdit(holiday)}
+                  >
+                    Edit
+                  </button>
                 </td>
               </tr>
             ))}

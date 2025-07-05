@@ -4,8 +4,13 @@ import { LuSend } from "react-icons/lu";
 import { toast } from "react-toastify";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
-import EditForm from "./EditForm";
+import { useNavigate } from "react-router-dom";
+
+
+
 function LeaveList() {
+
+  
   const [leave, setLeave] = useState([]);
   const [editId, setEditId] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -41,32 +46,30 @@ function LeaveList() {
     }
   };
 
-  const editUser = (item) => {
-    setEditId(item._id);
-    setFormData({
-      from: item.from,
-      subject: item.subject,
-      date: item.date,
-    });
-  };
+  const navigate = useNavigate();
+
+const editUser = (item) => {
+  navigate("/addleave", { state: { data: item } });
+};
 
   return (
-    <div className="h-screen bg-black text-white p-5 rounded-md">
+    <div className="h-min-screen bg-black text-white p-5  rounded-md">
       <h2 className="text-xl mb-10 pb-3 rounded-md sm:text-2xl font-semibold ">
         Resign Section
       </h2>
-      <div className="flex justify-end">
-        <button className="border mr-2 px-4 py-2 w-30 flex gap-3 items-center bg-blue-700 rounded-md ">
+     <div className="flex justify-between">
+       <div className="flex ">
+        <button className="border mr-2 px-4 py-2 w-30 h-12 flex gap-3 items-center bg-blue-700 rounded-md ">
           <FaInbox />
           Inbox
         </button>
-        <button className="border mr-2 px-4 py-2 w-30 flex gap-3 items-center bg-blue-700 rounded-md ">
+        <button className="border mr-2 px-4 py-2 h-12 w-30 flex gap-3 items-center bg-blue-700 rounded-md ">
           <span>
             <LuSend />
           </span>{" "}
           Sent
         </button>
-        <button className="border px-4 py-2 w-30 flex gap-3 items-center bg-blue-700 rounded-md ">
+        <button className="border px-4 py-2 w-30 h-12 flex gap-3 items-center bg-blue-700 rounded-md ">
           <FaPen />
           Compose
         </button>
@@ -81,8 +84,9 @@ function LeaveList() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
+     </div>
       <div>
-        <table className="table-auto mt-10 w-full border-collapse border border-gray-300">
+        <table className="table-auto mt-10 w-full border-collapse mb-5 border rounded-md border-gray-300">
           <thead>
             <tr className="text-center border border-gray-700 ">
               <th className="border border-gray-700 text-lg px-4 py-2">No.</th>
@@ -92,8 +96,7 @@ function LeaveList() {
               <th className="border border-gray-700 text-lg px-4 py-2">From</th>
               <th className="border border-gray-700 text-lg px-4 py-2">Date</th>
               <th className="border border-gray-700 text-lg px-4 py-2">
-                update/ <br />
-                delete
+                Action
               </th>
             </tr>
           </thead>
@@ -133,7 +136,7 @@ function LeaveList() {
           </tbody>
         </table>
 
-        {/* ✅ Part 2: Edit Form will go here */}
+         {/* Edit Form will go here
         {editId && (
           <EditForm
             formData={formData}
@@ -142,7 +145,7 @@ function LeaveList() {
             editId={editId}
             setLeave={setLeave}
           />
-        )}
+        )} */}
       </div>
     </div>
   );

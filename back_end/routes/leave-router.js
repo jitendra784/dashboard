@@ -7,11 +7,12 @@ const {
   updateLeaveList,
 } = require("../controller/leaveController");
 
+// POST new leave
+router.post("/leave", addLeave);
+
 // GET all leaves
 router.get("/leave", getAllLeave);
 
-// POST new leave
-router.post("/leave", addLeave);
 
 // DELETE a leave
 router.delete("/leave/:id", deleteLeave);
