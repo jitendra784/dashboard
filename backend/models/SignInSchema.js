@@ -13,6 +13,6 @@ const signSchema = new mongoose.Schema({
         require : true,
         minlength : 8,
     }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model("Sign In ",signSchema);

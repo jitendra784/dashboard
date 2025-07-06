@@ -24,7 +24,7 @@ const registerSchema = new mongoose.Schema({
     minlength: 8
   }
     
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model("Register",registerSchema)
 

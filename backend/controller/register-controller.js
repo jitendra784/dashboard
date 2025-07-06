@@ -1,4 +1,4 @@
-const Register = require("../model/RegisterSchema");
+const Register = require("../models/RegisterSchema");
 const bcrypt = require("bcrypt");
 
 exports.registerUser = async (req, res) => {

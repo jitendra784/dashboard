@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const API = require("../model/sign_model"); 
+const API = require("../models/SignInSchema"); 
 
 exports.signIn = async (req, res) => {
   const { email, password } = req.body;

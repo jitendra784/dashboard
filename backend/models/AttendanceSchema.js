@@ -18,7 +18,7 @@ const attendanceSchema = new mongoose.Schema(
       type: String, // "HH:mm"
       default: null,
     }
-  },
+  }, { timestamps: true }
 );
 
 module.exports = mongoose.model("attendance", attendanceSchema);
